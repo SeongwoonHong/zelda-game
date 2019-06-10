@@ -14,6 +14,7 @@ import {
 function mapStateToProps(state) {
   return {
     position: state.player.position,
+    spritePosition: state.player.spritePosition,
   }
 }
 
@@ -21,7 +22,11 @@ const mapDispatchToProps = {
   attemptMove: PlayerAction.attemptMove,
 };
 
-const Player = ({ position, attemptMove }) => {
+const Player = ({
+  position,
+  attemptMove,
+  spritePosition,
+}) => {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
 
@@ -51,6 +56,7 @@ const Player = ({ position, attemptMove }) => {
   return (
     <StyledPlayer
       position={position}
+      spritePosition={spritePosition}
     />
   )
 }
@@ -62,7 +68,7 @@ const StyledPlayer = styled.div`
   top: ${props => props.position[1]}px;
   left: ${props => props.position[0]}px;
   background-image: url(${walkSprite});
-  background-position: 0 0;
+  background-position: ${props => props.spritePosition};
   width: 40px;
   height: 40px;
 `;

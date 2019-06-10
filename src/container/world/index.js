@@ -31,6 +31,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(World);
 const StyledWorld = styled.div`
   position: relative;
   width: 800px;
-  height: 400px;
-  margin: 20px auto;
+  height: 100vh;
+  margin: 0px auto;
 `;

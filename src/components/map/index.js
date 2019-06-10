@@ -52,7 +52,7 @@ const StyledMap = styled.div`
   width: ${MAP_WIDTH}px;
   height: ${MAP_HEIGHT}px;
   border: 4px solid white;
-
+  background-color: lightblue;
   .rock {
     background-image: url('/tiles/rock.png');
   }
