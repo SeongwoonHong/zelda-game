@@ -1,7 +1,8 @@
 
 import React from 'react'
 import styled from 'styled-components';
-import { MAP_WIDTH, MAP_HEIGHT, SPRITE_SIZE } from 'config/constants';
+import { SPRITE_SIZE } from 'config/constants';
+import Player from 'components/player'
 
 const getTileSprite = (type) => {
   switch(type) {
@@ -39,6 +40,7 @@ const Map = ({ tiles }) => {
       {
         tiles.map(row => <MapRow row={row} />)
       }
+      <Player />
     </StyledMap>
   )
 }
@@ -46,13 +48,9 @@ const Map = ({ tiles }) => {
 export default Map
 
 const StyledMap = styled.div`
-  position: relative;
-  top: 0px;
-  left: 0px;
-  width: ${MAP_WIDTH}px;
-  height: ${MAP_HEIGHT}px;
-  border: 4px solid white;
-  background-color: lightblue;
+  width: 3000px;
+  height: 1200px;
+
   .rock {
     background-image: url('/tiles/rock.png');
   }

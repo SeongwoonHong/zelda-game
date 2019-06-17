@@ -30,6 +30,7 @@ export const attemptMove = (direction) => {
   const newPos = getNewPosition(oldPos, direction);
 
   if (observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos)) {
+    moveWorld(newPos, direction);
     return movePlayer(newPos, direction);
   }
 
@@ -87,5 +88,32 @@ export const movePlayer = (newPos, direction) => {
       spritePosition,
       walkIndex: getWalkIndex(),
     }
+  }
+}
+
+export const moveWorld = (newPos, direction) => {
+  if (newPos[0] < 360) {
+    if (direction === 'WEST' || direction === 'EAST') {
+      return;
+    }
+  }
+
+  if (newPos[1] < 200) {
+    if (direction === 'NORTH' || direction === 'SOUTH') {
+      return ;
+    }
+  }
+
+  switch(direction) {
+    case WEST:
+      return document.getElementById('world').scrollLeft -= SPRITE_SIZE;
+    case EAST:
+      return document.getElementById('world').scrollLeft += SPRITE_SIZE;
+    case NORTH:
+      return document.getElementById('world').scrollTop -= SPRITE_SIZE;
+    case SOUTH:
+      return document.getElementById('world').scrollTop += SPRITE_SIZE;
+    default:
+      return;
   }
 }

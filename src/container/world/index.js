@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import Map from 'components/map'
 import Player from 'components/player'
+import { WORLD_WIDTH, WORLD_HEIGHT } from 'config/constants';
 import { connect } from 'react-redux';
 import { Map as MapAction } from 'actions';
 
@@ -19,9 +20,9 @@ const World = ({ tiles, addTiles }) => {
   }, []);
 
   return (
-    <StyledWorld>
+    <StyledWorld id="world">
       <Map tiles={tiles} />
-      <Player />
+      {/* <Player /> */}
     </StyledWorld>
   )
 }
@@ -29,8 +30,12 @@ const World = ({ tiles, addTiles }) => {
 export default connect(mapStateToProps, mapDispatchToProps)(World);
 
 const StyledWorld = styled.div`
-  position: relative;
-  width: 800px;
-  height: 100vh;
-  margin: 0px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: ${WORLD_WIDTH}px;
+  height: ${WORLD_HEIGHT}px;
+  border: 4px solid white;
+  overflow: hidden;
 `;

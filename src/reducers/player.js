@@ -1,5 +1,5 @@
 const initialState = {
-  position: [0, 0],
+  position: [400, 240],
   spritePosition: '0px 0px',
   walkIndex: 0,
 }
