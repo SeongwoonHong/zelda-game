@@ -49,7 +49,7 @@ export default Map
 
 const StyledMap = styled.div`
   width: 3000px;
-  height: 1200px;
+  background-image: url('/tiles/waterSeamlessLoop.gif');
 
   .rock {
     background-image: url('/tiles/rock.png');

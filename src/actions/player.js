@@ -92,6 +92,30 @@ export const movePlayer = (newPos, direction) => {
 }
 
 export const moveWorld = (newPos, direction) => {
+  if (newPos[0] === 400) {
+    if (direction === 'WEST') {
+      return document.getElementById('world').scrollLeft -= SPRITE_SIZE;
+    } else if (direction === 'EAST') {
+      return document.getElementById('world').scrollLeft += SPRITE_SIZE;
+    }
+  }
+
+  if (newPos[1] === 240) {
+    if (direction === 'NORTH') {
+      return document.getElementById('world').scrollTop -= SPRITE_SIZE;
+    } else if (direction === 'SOUTH') {
+      return;
+    }
+  }
+
+  if (newPos[1] === (1920 - 240)) { // 1680
+    if (direction === 'NORTH') {
+      return document.getElementById('world').scrollTop += SPRITE_SIZE;
+    } else if (direction === 'SOUTH') {
+      return;
+    }
+  }
+
   if (newPos[0] < 360) {
     if (direction === 'WEST' || direction === 'EAST') {
       return;
@@ -99,6 +123,12 @@ export const moveWorld = (newPos, direction) => {
   }
 
   if (newPos[1] < 200) {
+    if (direction === 'NORTH' || direction === 'SOUTH') {
+      return ;
+    }
+  }
+
+  if (newPos[1] > (1920 - 280)) { // 1640
     if (direction === 'NORTH' || direction === 'SOUTH') {
       return ;
     }
